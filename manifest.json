@@ -16,7 +16,6 @@
   },
   "permissions": ["webRequest", "activeTab", "storage"],
   "host_permissions": ["*://*.amazonaws.com/*"],
-  "devtools_page": "src/pages/devtools/index.html",
   "web_accessible_resources": [
     {
       "resources": ["contentStyle.css", "icon-128.png", "icon-32.png"],
