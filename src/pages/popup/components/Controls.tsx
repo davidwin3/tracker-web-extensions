@@ -29,9 +29,9 @@ export default function Controls({
 
   return (
     <div className="flex justify-between mb-4">
-      <div className="flex space-x-2 w-2/3">
+      <div className="flex space-x-2 w-[460px]">
         <select
-          className="border rounded-md px-3 py-2 w-full"
+          className="border px-3 py-2 w-full"
           onChange={handleProjectChange}
         >
           <option value="ALL">All Streams</option>
@@ -42,7 +42,7 @@ export default function Controls({
           ))}
         </select>
         <button
-          className="border w-[200px] rounded-md px-4 py-2 hover:bg-gray-50"
+          className="border w-[150px] px-4 py-2 hover:bg-gray-50"
           onClick={onClearEvents}
         >
           Clear Events

@@ -30,6 +30,7 @@ export function useKinesisEvents() {
       setEvents([]);
       setFilteredEvents([]);
       setSelectedEvent(null);
+      chrome.action.setBadgeText({ text: "0" });
     });
   };
 
