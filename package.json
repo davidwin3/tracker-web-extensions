@@ -1,11 +1,11 @@
 {
-  "name": "vite-web-extension",
-  "version": "1.4.0",
-  "description": "A simple chrome & firefox extension template with Vite, React, TypeScript and Tailwind CSS.",
+  "name": "tracker-web-extension",
+  "version": "0.9.0",
+  "description": "Kinesis Log Tracker",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JohnBra/vite-web-extension.git"
+    "url": "https://github.com/davidwin3/tracker-web-extension.git"
   },
   "scripts": {
     "build": "vite build --config vite.config.chrome.ts",
