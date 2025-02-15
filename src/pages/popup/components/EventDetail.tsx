@@ -1,4 +1,3 @@
-import React from "react";
 import { KinesisRequestData } from "@shared/types/request";
 
 export default function EventDetail({ event }: { event: KinesisRequestData }) {

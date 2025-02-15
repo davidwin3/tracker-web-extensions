@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { KinesisRequestData } from "@shared/types/request";
 import EventItem from "./EventItem";
 
@@ -15,10 +14,12 @@ export default function EventItemList({
     return null;
   }
 
+  const sortedEvents = [...events].sort((a, b) => b.timestamp - a.timestamp);
+
   return (
     <div className="w-1/2 border">
       <div className="overflow-y-auto max-h-[460px]">
-        {events.map((event) => (
+        {sortedEvents.map((event) => (
           <EventItem
             key={event.timestamp}
             event={event}
