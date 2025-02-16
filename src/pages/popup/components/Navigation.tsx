@@ -1,5 +1,3 @@
-import logo from "@assets/img/logo.svg";
-
 interface NavigationProps {
   currentTab: string;
   onTabChange: (tab: string) => void;
@@ -11,6 +9,9 @@ const NAV_ITEMS = [
   // { label: "Cookies", href: "#" },
 ];
 
+const isDev = process.env.__DEV__ === "true";
+const icon = isDev ? "/dev-icon-32.png" : "/icon-32.png";
+
 export default function Navigation({
   currentTab,
   onTabChange,
@@ -19,7 +20,7 @@ export default function Navigation({
     <nav className="border-b border-gray-200">
       <div className="flex items-center px-4 py-2 space-x-6">
         <div className="flex items-center space-x-6">
-          <img src={logo} alt="Logo" className="w-8 h-8" />
+          <img src={icon} alt="Logo" className="w-6 h-6" />
           <div className="flex space-x-4">
             {NAV_ITEMS.map((item) => (
               <button
