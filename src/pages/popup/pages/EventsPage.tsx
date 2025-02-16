@@ -1,7 +1,7 @@
 import { Controls, EventDetail, EventItemList } from "../components";
 import { useKinesisEvents } from "../hooks/useKinesisEvents";
 
-export function EventsPage() {
+export default function EventsPage() {
   const {
     filteredEvents,
     selectedEvent,

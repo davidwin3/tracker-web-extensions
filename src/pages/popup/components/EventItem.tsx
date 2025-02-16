@@ -17,7 +17,7 @@ export default function EventItem({ event, onClick }: EventItemProps) {
         {new Date(event.timestamp).toLocaleTimeString()}
       </div>
       <div className="flex-1">
-        <span className="text-blue-600">
+        <span className="text-blue-600 font-semibold text-sm">
           {page_name} - {event_name}
         </span>
       </div>
