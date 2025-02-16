@@ -2,9 +2,6 @@
   "manifest_version": 3,
   "name": "Kinesis Log Tracker",
   "description": "Kinesis Log Tracker",
-  "options_ui": {
-    "page": "src/pages/options/index.html"
-  },
   "action": {
     "default_popup": "src/pages/popup/index.html",
     "default_icon": {
