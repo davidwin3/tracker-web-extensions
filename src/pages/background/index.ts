@@ -1,5 +1,5 @@
 import { KinesisRequestData } from "@shared/types/request";
-import { KINESIS_DATA_KEY } from "@shared/constants/config";
+import { KINESIS_DATA_KEY } from "@src/shared/constants/storage";
 import { BADGE_COLOR } from "@shared/constants/colors";
 
 async function handleKinesisRequest(

@@ -1,10 +1,10 @@
 import { KinesisRequestData } from "@shared/types/request";
 import EventItem from "./EventItem";
 
-type EventItemListProps = {
+interface EventItemListProps {
   events: KinesisRequestData[];
   onItemClick: (event: KinesisRequestData) => void;
-};
+}
 
 export default function EventItemList({
   events,

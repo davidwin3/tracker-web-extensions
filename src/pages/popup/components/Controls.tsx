@@ -1,14 +1,16 @@
-import { KINESIS_DATA_KEY } from "@shared/constants/config";
+import { KINESIS_DATA_KEY } from "@src/shared/constants/storage";
 import { KinesisRequestData } from "@shared/types/request";
 import { useEffect, useState } from "react";
+
+interface ControlsProps {
+  onClearEvents: () => void;
+  onFilteredEventsChange: (streamName: string) => void;
+}
 
 export default function Controls({
   onClearEvents,
   onFilteredEventsChange,
-}: {
-  onClearEvents: () => void;
-  onFilteredEventsChange: (streamName: string) => void;
-}) {
+}: ControlsProps) {
   const [uniqueGroupedEvents, setUniqueGroupedEvents] = useState<string[]>([]);
 
   const handleProjectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

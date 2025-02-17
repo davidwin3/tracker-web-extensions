@@ -1,32 +1,35 @@
 import { KinesisRequestData } from "@shared/types/request";
-import { useEffect, useState } from "react";
 import { Switch } from "@src/components/ui/switch";
-export default function EventDetail({ event }: { event: KinesisRequestData }) {
-  const [enabledFilterKeysOnly, setEnabledFilterKeysOnly] = useState(false);
-  const [filterEventDetailKeys, setFilterEventDetailKeys] = useState("");
+import {
+  ENABLED_FILTER_KEYS_ONLY,
+  FILTER_EVENT_DETAIL_KEYS,
+} from "@src/shared/constants/storage";
+import { useStorageState } from "@src/hooks/useStorageState";
+import { EventDetailItem } from "./EventDetailItem";
 
-  useEffect(() => {
-    chrome.storage.local.get("filterEventDetailKeys", (result) => {
-      setFilterEventDetailKeys(result.filterEventDetailKeys || "");
-    });
-  }, []);
+interface EventDetailsProps {
+  event: KinesisRequestData;
+}
 
-  const handleFilterKeysOnly = () => {
-    setEnabledFilterKeysOnly(!enabledFilterKeysOnly);
-    chrome.storage.local.set({ enabledFilterKeysOnly });
-  };
+export default function EventDetails({ event }: EventDetailsProps) {
+  const [enabledKeysOnly, setEnabledKeysOnly] = useStorageState(
+    ENABLED_FILTER_KEYS_ONLY,
+    false
+  );
+  const [filterKeys] = useStorageState(FILTER_EVENT_DETAIL_KEYS, "");
 
   const { records } = event;
   const itemData = records?.[0] ?? {};
   const { page_name, event_name } = itemData;
+
   return (
     <div className="w-1/2 flex flex-col gap-2">
       <div className="flex justify-between items-center">
         <span className="text-lg font-semibold">Event Detail</span>
         <div className="flex items-center gap-2">
           <Switch
-            checked={enabledFilterKeysOnly}
-            onCheckedChange={handleFilterKeysOnly}
+            checked={enabledKeysOnly}
+            onCheckedChange={setEnabledKeysOnly}
           />
           <span className="text-sm text-gray-500">Filter keys only</span>
         </div>
@@ -40,13 +43,10 @@ export default function EventDetail({ event }: { event: KinesisRequestData }) {
         <div className="space-y-4">
           {Object.entries(itemData)
             .filter(([key]) =>
-              enabledFilterKeysOnly ? filterEventDetailKeys.includes(key) : true
+              enabledKeysOnly ? filterKeys.includes(key) : true
             )
             .map(([key, value]) => (
-              <div key={key} className="flex justify-between">
-                <span className="text-gray-600">{key}</span>
-                <span className="text-sm">{JSON.stringify(value)}</span>
-              </div>
+              <EventDetailItem key={key} keyName={key} value={value} />
             ))}
         </div>
       </div>

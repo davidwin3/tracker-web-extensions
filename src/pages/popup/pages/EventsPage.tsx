@@ -1,4 +1,4 @@
-import { Controls, EventDetail, EventItemList } from "../components";
+import { Controls, EventDetails, EventItemList } from "../components";
 import { useKinesisEvents } from "../hooks/useKinesisEvents";
 
 export default function EventsPage() {
@@ -18,7 +18,7 @@ export default function EventsPage() {
       />
       <div className="flex gap-4 max-h-[calc(100vh-100px)] overflow-y-auto">
         <EventItemList events={filteredEvents} onItemClick={selectEvent} />
-        {selectedEvent && <EventDetail event={selectedEvent} />}
+        {selectedEvent && <EventDetails event={selectedEvent} />}
       </div>
     </div>
   );
