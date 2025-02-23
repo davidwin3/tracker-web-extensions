@@ -21,6 +21,10 @@ export default function Controls({
     chrome.storage.local.get(
       KINESIS_DATA_KEY,
       (result: { [KINESIS_DATA_KEY]: KinesisRequestData[] }) => {
+        if (!result[KINESIS_DATA_KEY]) {
+          return;
+        }
+
         const uniqueStreamNames = [
           ...new Set(result[KINESIS_DATA_KEY].map((event) => event.streamName)),
         ];
