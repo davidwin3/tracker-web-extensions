@@ -11,7 +11,7 @@
   "icons": {
     "128": "icon-128.png"
   },
-  "permissions": ["webRequest", "activeTab", "storage"],
+  "permissions": ["webRequest", "storage"],
   "host_permissions": ["*://*.amazonaws.com/*"],
   "web_accessible_resources": [
     {
