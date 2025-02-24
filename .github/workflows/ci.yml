@@ -26,8 +26,12 @@ jobs:
       - name: Build Chrome
         run: yarn build:chrome
 
+      - name: Get package version
+        id: package-version
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
       - name: Upload Chrome extension artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: kinesis-tracker-web-extension-chrome
+          name: kinesis-tracker-web-extension-chrome-v${{ steps.package-version.outputs.version }}
           path: dist_chrome
