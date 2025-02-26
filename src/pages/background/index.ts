@@ -53,7 +53,13 @@ function updateBadge(count: number) {
 
 function decodeBase64(base64String: string) {
   try {
-    const decodedString = atob(base64String);
+    const binaryString = atob(base64String);
+    const bytes = new Uint8Array(binaryString.length);
+    for (let i = 0; i < binaryString.length; i++) {
+      bytes[i] = binaryString.charCodeAt(i);
+    }
+    const decoder = new TextDecoder("utf-8");
+    const decodedString = decoder.decode(bytes);
     return JSON.parse(decodedString);
   } catch (error) {
     console.error("Decoding failed:", error);
