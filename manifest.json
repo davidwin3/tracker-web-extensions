@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Kinesis Log Tracker",
-  "description": "Kinesis Log Tracker",
+  "name": "Kinesis Event Tracker",
+  "description": "Event Tracker for AWS Kinesis Streams",
   "action": {
     "default_popup": "src/pages/popup/index.html",
     "default_icon": {
