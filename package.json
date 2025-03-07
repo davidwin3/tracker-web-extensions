@@ -1,6 +1,6 @@
 {
   "name": "tracker-web-extension",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Event Tracker for AWS Kinesis Streams",
   "license": "MIT",
   "repository": {
